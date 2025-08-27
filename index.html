@@ -4,205 +4,497 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sarkari Portal</title>
-    <!-- Inter Font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<style>
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f3f4f6;
-            transition: all 0.3s ease-in-out;
+            font-family: sans-serif;
+            margin: 0;
         }
-        .shadow-custom {
-            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+        header {
+            background-color: #bb0d0d;
+            color: white;
+            padding: 1rem;
+            text-align: center;
         }
-        .glass-bg {
-            background-color: rgba(255,255,255,0.7);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            background-color: #000;
+            padding: 1em;
+            text-align: center;
         }
-        .gradient-bg {
-            background-image: linear-gradient(to right, #4a5568, #2d3748);
+        nav ul li {
+            display: inline-block;
+            margin: 0 1rem;
         }
-        .glow-on-hover {
-            transition: all 0.3s ease-in-out;
+        nav ul li a {
+            color: rgb(202, 202, 202);
+            text-decoration: none;
         }
-        .glow-on-hover:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(66,153,225,0.4);
+    main {
+            padding: 2rem;
         }
-        .card-container {
-            display: grid;
-            gap: 1.5rem;
-            grid-template-columns: repeat(1, minmax(0, 1fr));
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 2rem;
         }
-        @media (min-width: 768px) {
-            .card-container { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
         }
-        @media (min-width: 1024px) {
-            .card-container { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+        th {
+            background-color: #f2f2f2;
         }
-        /* Fade-in animation for cards */
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+    .table-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 2rem;
         }
-        .card-container > div {
-            animation: fadeInUp 0.4s ease both;
+        .table-wrapper {
+            flex: 1;
+        }
+    .ticker-wrap {
+            width: 100%;
+            overflow: hidden;
+            background-color: #f8f8f8;
+            padding: 10px 0;
+            border-top: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+        }
+        .ticker {
+            display: inline-block;
+            white-space: nowrap;
+            animation: ticker 20s linear infinite;
+        }
+        .ticker-item {
+            display: inline-block;
+            padding: 0 2rem;
+        }
+        @keyframes ticker {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+    .social-icons a {
+            color: #ccc;
+            margin-right: 1rem;
+            font-size: 1.5rem;
+            text-decoration: none;
+        }
+        .social-icons a:hover {
+            color: #fff;
+        }
+    .social-icons a {
+            color: #ccc;
+            margin-right: 1rem;
+            font-size: 1.5rem;
+            text-decoration: none;
+        }
+        .social-icons a:hover {
+            color: #fff;
+        }
+    footer {
+            background-color: #160d0d;
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+        }
+    footer .footer-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+    footer .footer-column {
+            flex: 1;
+            min-width: 200px;
+        }
+    footer .footer-column h3 {
+            font-size: 1.2rem;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+    footer .footer-column p {
+            margin-bottom: 1rem;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+    footer .footer-container a {
+            color: #ccc;
+            text-decoration: none;
+        }
+    footer .footer-container a:hover {
+            color: #fff;
+        }
+    footer .footer-container ul {
+            list-style: none;
+            padding: 0;
+        }
+    footer .social-icons{
+        display: flex;
+        justify-content: center;
+        margin-top: 1rem;
+    }
+    footer .social-icons a {
+            color: #fffbf9;
+            margin-right: 1rem;
+            font-size: 1.5rem;
+            text-decoration: none;
+        }
+        footer .social-icons a:hover {
+            color: #500663;
+            transition: ease-in-out 0.3s;
+        }
+    footer .footer-bottom {
+            border-top: 1px solid #444;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            font-size: 0.9rem;
         }
     </style>
 </head>
-<body class="bg-gray-100 flex flex-col min-h-screen">
-
-    <!-- Header -->
-    <header class="gradient-bg text-white p-6 shadow-custom">
-        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
-            <h1 class="text-3xl font-bold tracking-tight mb-4 md:mb-0">
-                <a href="#" class="text-white hover:text-blue-200 transition-colors">Job & Results Portal</a>
-            </h1>
-            <nav class="space-x-4">
-                <a href="#latest-jobs" class="hover:text-blue-300 transition-colors">Jobs</a>
-                <a href="#admit-card" class="hover:text-blue-300 transition-colors">Admit Card</a>
-                <a href="#results" class="hover:text-blue-300 transition-colors">Results</a>
-            </nav>
-        </div>
+<body>
+    <header>
+        <h1>Sarkari Portal</h1> 
     </header>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="./latest_job/latest_job.html">Latest Job</a></li>
+                <li><a href="#">Result</a></li>
+                <li><a href="#">Admit Card</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
 
-    <!-- Main -->
-    <main class="container mx-auto p-4 md:p-8 flex-grow">
 
-        <!-- Search -->
-        <div class="mb-8 w-full max-w-2xl mx-auto">
-            <label for="search-input" class="sr-only">Search</label>
-            <input type="text" id="search-input" aria-label="Search jobs, results, or exams"
-                   placeholder="Search for jobs, results, or exams..."
-                   class="w-full px-6 py-4 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm transition-shadow glow-on-hover">
+        
+<div class="ticker-wrap">
+    <div class="ticker">
+        <div class="ticker-item"><a href="#">🆕 UP Police OTR Registration 2025 Apply Online for New Upcoming Vacancies</a></div>
+        <div class="ticker-item"><a href="#">🆕 SSC CGL 2025 Application Starts from 01/10/2025.</a></div>
+        <div class="ticker-item"><a href="#">🆕 RRB NTPC 2025 Exam Date Announced.</a></div>
+    </div>
+</div>
+<main>
+    <div class="table-container">
+        <div class="table-wrapper">
+            <h2><a href="./latest_job/latest_job.html" style="text-decoration: none; color: #000;">Latest Jobs</a></h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Post Name</th>
+                        <th>Total Vacancies</th>
+                        <th>Last Date</th>
+                        <th>Link</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>UP Police OTR Registration 2025 Apply Online for New Upcoming Vacancies</td>
+                        <td>31/12/2025</td>
+                        <td><a href="./latest_job/Job/UPSI.html">Apply Now</a></td>
+                    </tr>
+                    <tr>
+                        <td>UPSC Civil Services</td>
+                        <td>800+</td>
+                        <td>15/11/2025</td>
+                         <td><a href="#">Apply Now</a></td>
+                    </tr>
+                    <tr>
+                        <td>UPSC Civil Services</td>
+                        <td>800+</td>
+                        <td>15/11/2025</td>
+                         <td><a href="#">Apply Now</a></td>
+                    </tr>
+                    <tr>
+                        <td>UPSC Civil Services</td>
+                        <td>800+</td>
+                        <td>15/11/2025</td>
+                         <td><a href="#">Apply Now</a></td>
+                    </tr>
+                    <tr>
+                        <td>UPSC Civil Services</td>
+                        <td>800+</td>
+                        <td>15/11/2025</td>
+                         <td><a href="#">Apply Now</a></td>
+                    </tr>
+                    <tr>
+                        <td>UPSC Civil Services</td>
+                        <td>800+</td>
+                        <td>15/11/2025</td>
+                         <td><a href="#">Apply Now</a></td>
+                    </tr>
+                    <tr>
+                        <td>UPSC Civil Services</td>
+                        <td>800+</td>
+                        <td>15/11/2025</td>
+                         <td><a href="#">Apply Now</a></td>
+                    </tr>
+                    <tr>
+                        <td>UPSC Civil Services</td>
+                        <td>800+</td>
+                        <td>15/11/2025</td>
+                         <td><a href="#">Apply Now</a></td>
+                    </tr>
+                    <tr>
+                        <td>UPSC Civil Services</td>
+                        <td>800+</td>
+                        <td>15/11/2025</td>
+                         <td><a href="#">Apply Now</a></td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
 
-        <!-- Latest Jobs -->
-        <section id="latest-jobs" class="mb-12">
-            <h2 class="text-3xl font-bold text-gray-800 mb-6 border-b-2 border-blue-500 pb-2">Latest Jobs</h2>
-            <div id="latest-jobs-container" class="card-container"></div>
-        </section>
-
-        <!-- Admit Card -->
-        <section id="admit-card" class="mb-12">
-            <h2 class="text-3xl font-bold text-gray-800 mb-6 border-b-2 border-green-500 pb-2">Admit Card</h2>
-            <div id="admit-card-container" class="card-container"></div>
-        </section>
-
-        <!-- Results -->
-        <section id="results" class="mb-12">
-            <h2 class="text-3xl font-bold text-gray-800 mb-6 border-b-2 border-red-500 pb-2">Results</h2>
-            <div id="results-container" class="card-container"></div>
-        </section>
-
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-white p-6 mt-auto">
-        <div class="container mx-auto text-center">
-            <p>&copy; 2025 Sarkari Portal. All Rights Reserved.</p>
+        <div class="table-wrapper">
+            <h2>Recent Results</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Exam Name</th>
+                        <th>Result Date</th>
+                        <th>Link</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>SSC CHSL 2024</td>
+                        <td>26/08/2025</td>
+                        <td><a href="#">Click Here</a></td>
+                    </tr>
+                    <tr>
+                        <td>IBPS PO 2024</td>
+                        <td>25/08/2025</td>
+                        <td><a href="#">Click Here</a></td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-    </footer>
 
-    <script>
-        // Mock Data
-        const data = {
-            'latest-jobs': [
-                { title: 'SSC Junior Engineer 2024 Recruitment', date: 'Posted: July 25, 2025', status: 'Online Form', url: '#' },
-                { title: 'Indian Army Agniveer 2025 Online Form', date: 'Posted: July 22, 2025', status: 'Online Form', url: '#' },
-                { title: 'Bihar BPSC Teacher 2025 Recruitment', date: 'Posted: July 18, 2025', status: 'Online Form', url: '#' },
-                { title: 'UP Police Constable 2025 Recruitment', date: 'Posted: July 15, 2025', status: 'Online Form', url: '#' },
-                { title: 'Railway Loco Pilot 2025 Recruitment', date: 'Posted: July 10, 2025', status: 'Online Form', url: '#' },
-                { title: 'UPSC Civil Services 2025 Notification', date: 'Posted: July 5, 2025', status: 'Online Form', url: '#' },
-                { title: 'CISF Constable 2025 Recruitment', date: 'Posted: July 2, 2025', status: 'Online Form', url: '#' },
-                { title: 'Delhi Subordinate Services 2025', date: 'Posted: June 28, 2025', status: 'Online Form', url: '#' }
-            ],
-            'admit-card': [
-                { title: 'Railway Group D 2024 Exam Admit Card', date: 'Available: Aug 20, 2025', status: 'Admit Card', url: '#' },
-                { title: 'SSC CGL Tier I 2024 Admit Card', date: 'Available: Aug 15, 2025', status: 'Admit Card', url: '#' },
-                { title: 'Bihar Police Constable 2024 Admit Card', date: 'Available: Aug 10, 2025', status: 'Admit Card', url: '#' },
-                { title: 'UPPSC Assistant Engineer 2024 Admit Card', date: 'Available: Aug 5, 2025', status: 'Admit Card', url: '#' }
-            ],
-            'results': [
-                { title: 'UPSC Civil Services Final Result 2024', date: 'Published: July 25, 2025', status: 'Result', url: '#' },
-                { title: 'SSC CHSL Tier I 2024 Result', date: 'Published: July 20, 2025', status: 'Result', url: '#' },
-                { title: 'UPTET 2024 Result', date: 'Published: July 15, 2025', status: 'Result', url: '#' },
-                { title: 'IBPS PO Final Result 2024', date: 'Published: July 10, 2025', status: 'Result', url: '#' }
-            ]
-        };
+        <div class="table-wrapper">
+            <h2>Admit Cards</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Exam Name</th>
+                        <th>Exam Date</th>
+                        <th>Link</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>UPTET 2025</td>
+                        <td>10/09/2025</td>
+                        <td><a href="#">Download</a></td>
+                    </tr>
+                    <tr>
+                        <td>RRB NTPC 2025</td>
+                        <td>15/09/2025</td>
+                        <td><a href="#">Download</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</main>
+<main>
+    <div class="table-container">
+        <div class="table-wrapper">
+            <h2>Latest Jobs</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Post Name</th>
+                        <th>Total Vacancies</th>
+                        <th>Last Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>SSC CGL 2025</td>
+                        <td>10000+</td>
+                        <td>31/12/2025</td>
+                    </tr>
+                    <tr>
+                        <td>UPSC Civil Services</td>
+                        <td>800+</td>
+                        <td>15/11/2025</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
-        // Render Items
-        function renderItems(sectionId, items) {
-            const container = document.getElementById(sectionId);
-            container.innerHTML = '';
+        <div class="table-wrapper">
+            <h2>Recent Results</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Exam Name</th>
+                        <th>Result Date</th>
+                        <th>Link</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>SSC CHSL 2024</td>
+                        <td>26/08/2025</td>
+                        <td><a href="#">Click Here</a></td>
+                    </tr>
+                    <tr>
+                        <td>IBPS PO 2024</td>
+                        <td>25/08/2025</td>
+                        <td><a href="#">Click Here</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
-            if (items.length === 0) {
-                container.innerHTML = `<p class="text-gray-500 italic col-span-full">No results found</p>`;
-                return;
-            }
+        <div class="table-wrapper">
+            <h2>Admit Cards</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Exam Name</th>
+                        <th>Exam Date</th>
+                        <th>Link</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>UPTET 2025</td>
+                        <td>10/09/2025</td>
+                        <td><a href="#">Download</a></td>
+                    </tr>
+                    <tr>
+                        <td>RRB NTPC 2025</td>
+                        <td>15/09/2025</td>
+                        <td><a href="#">Download</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</main>
+<main>
+    <div class="table-container">
+        <div class="table-wrapper">
+            <h2>Latest Jobs</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Post Name</th>
+                        <th>Total Vacancies</th>
+                        <th>Last Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>SSC CGL 2025</td>
+                        <td>10000+</td>
+                        <td>31/12/2025</td>
+                    </tr>
+                    <tr>
+                        <td>UPSC Civil Services</td>
+                        <td>800+</td>
+                        <td>15/11/2025</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
-            items.forEach(item => {
-                const card = document.createElement('div');
-                card.classList.add(
-                    'bg-white','rounded-xl','p-6','shadow-lg',
-                    'hover:shadow-xl','transform','hover:scale-105',
-                    'transition-all','duration-300','glow-on-hover'
-                );
-                card.innerHTML = `
-                    <h3 class="text-lg md:text-xl font-semibold text-gray-900 mb-2">${item.title}</h3>
-                    <p class="text-sm md:text-base text-gray-600 mb-4">${item.date}</p>
-                    <a href="${item.url}" target="_blank" class="inline-block bg-blue-500 text-white font-medium py-2 px-4 rounded-full hover:bg-blue-600 transition-colors">
-                        ${item.status}
-                    </a>
-                `;
-                container.appendChild(card);
-            });
-        }
+        <div class="table-wrapper">
+            <h2>Recent Results</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Exam Name</th>
+                        <th>Result Date</th>
+                        <th>Link</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>SSC CHSL 2024</td>
+                        <td>26/08/2025</td>
+                        <td><a href="#">Click Here</a></td>
+                    </tr>
+                    <tr>
+                        <td>IBPS PO 2024</td>
+                        <td>25/08/2025</td>
+                        <td><a href="#">Click Here</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
-        // Search Handler
-        function handleSearch() {
-            const query = document.getElementById('search-input').value.toLowerCase();
-
-            const filteredJobs = data['latest-jobs'].filter(item =>
-                item.title.toLowerCase().includes(query) || item.status.toLowerCase().includes(query)
-            );
-            renderItems('latest-jobs-container', filteredJobs);
-
-            const filteredAdmitCards = data['admit-card'].filter(item =>
-                item.title.toLowerCase().includes(query) || item.status.toLowerCase().includes(query)
-            );
-            renderItems('admit-card-container', filteredAdmitCards);
-
-            const filteredResults = data['results'].filter(item =>
-                item.title.toLowerCase().includes(query) || item.status.toLowerCase().includes(query)
-            );
-            renderItems('results-container', filteredResults);
-        }
-
-        // Debounce Utility
-        function debounce(fn, delay) {
-            let timeout;
-            return function(...args) {
-                clearTimeout(timeout);
-                timeout = setTimeout(() => fn.apply(this, args), delay);
-            };
-        }
-
-        // Attach Search Event
-        document.getElementById('search-input')
-            .addEventListener('input', debounce(handleSearch, 300));
-
-        // Initial Render
-        document.addEventListener('DOMContentLoaded', () => {
-            renderItems('latest-jobs-container', data['latest-jobs']);
-            renderItems('admit-card-container', data['admit-card']);
-            renderItems('results-container', data['results']);
-        });
-    </script>
+        <div class="table-wrapper">
+            <h2>Admit Cards</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Exam Name</th>
+                        <th>Exam Date</th>
+                        <th>Link</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>UPTET 2025</td>
+                        <td>10/09/2025</td>
+                        <td><a href="#">Download</a></td>
+                    </tr>
+                    <tr>
+                        <td>RRB NTPC 2025</td>
+                        <td>15/09/2025</td>
+                        <td><a href="#">Download</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</main>
+<footer>
+    <div class="footer-container">
+        <div class="footer-column">
+            <h3>About Us</h3>
+            <p>Sarkari Portal is your one-stop destination for all government job alerts, results, and admit cards.</p>
+        </div>
+        <div class="footer-column">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Latest Jobs</a></li>
+                <li><a href="#">Results</a></li>
+                <li><a href="#">Admit Cards</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h3>Contact Us</h3>
+            <p>Email: contact@sarkariportal.example.com</p>
+            <p>Phone: +91-1234567890</p>
+        </div>
+        <div class="footer-column">
+            <h3>Follow Us</h3>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/sarkariportal" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.twitter.com/sarkariportal" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com/sarkariportal" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/company/sarkariportal" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2025 Sarkari Portal. All Rights Reserved.</p>
+    </div>
+</footer>
 </body>
 </html>
