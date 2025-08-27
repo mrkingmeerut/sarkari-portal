@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sarkari Portal</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+        }
+        header {
+            background-color: #bb0d0d;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            background-color: #000;
+            padding: 1em;
+            text-align: center;
+        }
+        nav ul li {
+            display: inline-block;
+            margin: 0 1rem;
+        }
+        nav ul li a {
+            color: rgb(202, 202, 202);
+            text-decoration: none;
+        }
+    main {
+            padding: 2rem;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 2rem;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    .table-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+        .table-wrapper {
+            flex: 1;
+        }
+    .ticker-wrap {
+            width: 100%;
+            overflow: hidden;
+            background-color: #f8f8f8;
+            padding: 10px 0;
+            border-top: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+        }
+        .ticker {
+            display: inline-block;
+            white-space: nowrap;
+            animation: ticker 20s linear infinite;
+        }
+        .ticker-item {
+            display: inline-block;
+            padding: 0 2rem;
+        }
+        @keyframes ticker {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+    .social-icons a {
+            color: #ccc;
+            margin-right: 1rem;
+            font-size: 1.5rem;
+            text-decoration: none;
+        }
+        .social-icons a:hover {
+            color: #fff;
+        }
+    .social-icons a {
+            color: #ccc;
+            margin-right: 1rem;
+            font-size: 1.5rem;
+            text-decoration: none;
+        }
+        .social-icons a:hover {
+            color: #fff;
+        }
+    footer {
+            background-color: #160d0d;
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+        }
+    footer .footer-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+    footer .footer-column {
+            flex: 1;
+            min-width: 200px;
+        }
+    footer .footer-column h3 {
+            font-size: 1.2rem;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+    footer .footer-column p {
+            margin-bottom: 1rem;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+    footer .footer-container a {
+            color: #ccc;
+            text-decoration: none;
+        }
+    footer .footer-container a:hover {
+            color: #fff;
+        }
+    footer .footer-container ul {
+            list-style: none;
+            padding: 0;
+        }
+    footer .social-icons{
+        display: flex;
+        justify-content: center;
+        margin-top: 1rem;
+    }
+    footer .social-icons a {
+            color: #fffbf9;
+            margin-right: 1rem;
+            font-size: 1.5rem;
+            text-decoration: none;
+        }
+        footer .social-icons a:hover {
+            color: #500663;
+            transition: ease-in-out 0.3s;
+        }
+    footer .footer-bottom {
+            border-top: 1px solid #444;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Sarkari Portal</h1> 
+    </header>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="./latest_job/latest_job.html">Latest Job</a></li>
+                <li><a href="#">Result</a></li>
+                <li><a href="#">Admit Card</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+ <div class="table-container">
+    <div class="table-wrapper">
+            <h2>Latest Jobs</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Post Name</th>
+                        <th>Total Vacancies</th>
+                        <th>Last Date</th>
+                        <th>Link</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>SSC CGL 2025</td>
+                        <td>10000+</td>
+                        <td>31/12/2025</td>
+                        <td><a href="#">Apply Now</a></td>
+                    </tr>
+                    <tr>
+                        <td>UPSC Civil Services</td>
+                        <td>800+</td>
+                        <td>15/11/2025</td>
+                         <td><a href="#">Apply Now</a></td>
+                    </tr>
+                    <tr>
+                        <td>UPSC Civil Services</td>
+                        <td>800+</td>
+                        <td>15/11/2025</td>
+                         <td><a href="#">Apply Now</a></td>
+                    </tr>
+                    <tr>
+                        <td>UPSC Civil Services</td>
+                        <td>800+</td>
+                        <td>15/11/2025</td>
+                         <td><a href="#">Apply Now</a></td>
+                    </tr>
+                    <tr>
+                        <td>UPSC Civil Services</td>
+                        <td>800+</td>
+                        <td>15/11/2025</td>
+                         <td><a href="#">Apply Now</a></td>
+                    </tr>
+                    <tr>
+                        <td>UPSC Civil Services</td>
+                        <td>800+</td>
+                        <td>15/11/2025</td>
+                         <td><a href="#">Apply Now</a></td>
+                    </tr>
+                    <tr>
+                        <td>UPSC Civil Services</td>
+                        <td>800+</td>
+                        <td>15/11/2025</td>
+                         <td><a href="#">Apply Now</a></td>
+                    </tr>
+                    <tr>
+                        <td>UPSC Civil Services</td>
+                        <td>800+</td>
+                        <td>15/11/2025</td>
+                         <td><a href="#">Apply Now</a></td>
+                    </tr>
+                    <tr>
+                        <td>UPSC Civil Services</td>
+                        <td>800+</td>
+                        <td>15/11/2025</td>
+                         <td><a href="#">Apply Now</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+ </div>
