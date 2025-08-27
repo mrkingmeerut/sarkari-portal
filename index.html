@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sarkari Portal</title>
+    <!-- Inter Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+            transition: all 0.3s ease-in-out;
+        }
+        .shadow-custom {
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+        }
+        .glass-bg {
+            background-color: rgba(255,255,255,0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        .gradient-bg {
+            background-image: linear-gradient(to right, #4a5568, #2d3748);
+        }
+        .glow-on-hover {
+            transition: all 0.3s ease-in-out;
+        }
+        .glow-on-hover:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(66,153,225,0.4);
+        }
+        .card-container {
+            display: grid;
+            gap: 1.5rem;
+            grid-template-columns: repeat(1, minmax(0, 1fr));
+        }
+        @media (min-width: 768px) {
+            .card-container { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        }
+        @media (min-width: 1024px) {
+            .card-container { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+        }
+        /* Fade-in animation for cards */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .card-container > div {
+            animation: fadeInUp 0.4s ease both;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 flex flex-col min-h-screen">
+
+    <!-- Header -->
+    <header class="gradient-bg text-white p-6 shadow-custom">
+        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
+            <h1 class="text-3xl font-bold tracking-tight mb-4 md:mb-0">
+                <a href="#" class="text-white hover:text-blue-200 transition-colors">Job & Results Portal</a>
+            </h1>
+            <nav class="space-x-4">
+                <a href="#latest-jobs" class="hover:text-blue-300 transition-colors">Jobs</a>
+                <a href="#admit-card" class="hover:text-blue-300 transition-colors">Admit Card</a>
+                <a href="#results" class="hover:text-blue-300 transition-colors">Results</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main -->
+    <main class="container mx-auto p-4 md:p-8 flex-grow">
+
+        <!-- Search -->
+        <div class="mb-8 w-full max-w-2xl mx-auto">
+            <label for="search-input" class="sr-only">Search</label>
+            <input type="text" id="search-input" aria-label="Search jobs, results, or exams"
+                   placeholder="Search for jobs, results, or exams..."
+                   class="w-full px-6 py-4 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm transition-shadow glow-on-hover">
+        </div>
+
+        <!-- Latest Jobs -->
+        <section id="latest-jobs" class="mb-12">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6 border-b-2 border-blue-500 pb-2">Latest Jobs</h2>
+            <div id="latest-jobs-container" class="card-container"></div>
+        </section>
+
+        <!-- Admit Card -->
+        <section id="admit-card" class="mb-12">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6 border-b-2 border-green-500 pb-2">Admit Card</h2>
+            <div id="admit-card-container" class="card-container"></div>
+        </section>
+
+        <!-- Results -->
+        <section id="results" class="mb-12">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6 border-b-2 border-red-500 pb-2">Results</h2>
+            <div id="results-container" class="card-container"></div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white p-6 mt-auto">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2025 Sarkari Portal. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mock Data
+        const data = {
+            'latest-jobs': [
+                { title: 'SSC Junior Engineer 2024 Recruitment', date: 'Posted: July 25, 2025', status: 'Online Form', url: '#' },
+                { title: 'Indian Army Agniveer 2025 Online Form', date: 'Posted: July 22, 2025', status: 'Online Form', url: '#' },
+                { title: 'Bihar BPSC Teacher 2025 Recruitment', date: 'Posted: July 18, 2025', status: 'Online Form', url: '#' },
+                { title: 'UP Police Constable 2025 Recruitment', date: 'Posted: July 15, 2025', status: 'Online Form', url: '#' },
+                { title: 'Railway Loco Pilot 2025 Recruitment', date: 'Posted: July 10, 2025', status: 'Online Form', url: '#' },
+                { title: 'UPSC Civil Services 2025 Notification', date: 'Posted: July 5, 2025', status: 'Online Form', url: '#' },
+                { title: 'CISF Constable 2025 Recruitment', date: 'Posted: July 2, 2025', status: 'Online Form', url: '#' },
+                { title: 'Delhi Subordinate Services 2025', date: 'Posted: June 28, 2025', status: 'Online Form', url: '#' }
+            ],
+            'admit-card': [
+                { title: 'Railway Group D 2024 Exam Admit Card', date: 'Available: Aug 20, 2025', status: 'Admit Card', url: '#' },
+                { title: 'SSC CGL Tier I 2024 Admit Card', date: 'Available: Aug 15, 2025', status: 'Admit Card', url: '#' },
+                { title: 'Bihar Police Constable 2024 Admit Card', date: 'Available: Aug 10, 2025', status: 'Admit Card', url: '#' },
+                { title: 'UPPSC Assistant Engineer 2024 Admit Card', date: 'Available: Aug 5, 2025', status: 'Admit Card', url: '#' }
+            ],
+            'results': [
+                { title: 'UPSC Civil Services Final Result 2024', date: 'Published: July 25, 2025', status: 'Result', url: '#' },
+                { title: 'SSC CHSL Tier I 2024 Result', date: 'Published: July 20, 2025', status: 'Result', url: '#' },
+                { title: 'UPTET 2024 Result', date: 'Published: July 15, 2025', status: 'Result', url: '#' },
+                { title: 'IBPS PO Final Result 2024', date: 'Published: July 10, 2025', status: 'Result', url: '#' }
+            ]
+        };
+
+        // Render Items
+        function renderItems(sectionId, items) {
+            const container = document.getElementById(sectionId);
+            container.innerHTML = '';
+
+            if (items.length === 0) {
+                container.innerHTML = `<p class="text-gray-500 italic col-span-full">No results found</p>`;
+                return;
+            }
+
+            items.forEach(item => {
+                const card = document.createElement('div');
+                card.classList.add(
+                    'bg-white','rounded-xl','p-6','shadow-lg',
+                    'hover:shadow-xl','transform','hover:scale-105',
+                    'transition-all','duration-300','glow-on-hover'
+                );
+                card.innerHTML = `
+                    <h3 class="text-lg md:text-xl font-semibold text-gray-900 mb-2">${item.title}</h3>
+                    <p class="text-sm md:text-base text-gray-600 mb-4">${item.date}</p>
+                    <a href="${item.url}" target="_blank" class="inline-block bg-blue-500 text-white font-medium py-2 px-4 rounded-full hover:bg-blue-600 transition-colors">
+                        ${item.status}
+                    </a>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        // Search Handler
+        function handleSearch() {
+            const query = document.getElementById('search-input').value.toLowerCase();
+
+            const filteredJobs = data['latest-jobs'].filter(item =>
+                item.title.toLowerCase().includes(query) || item.status.toLowerCase().includes(query)
+            );
+            renderItems('latest-jobs-container', filteredJobs);
+
+            const filteredAdmitCards = data['admit-card'].filter(item =>
+                item.title.toLowerCase().includes(query) || item.status.toLowerCase().includes(query)
+            );
+            renderItems('admit-card-container', filteredAdmitCards);
+
+            const filteredResults = data['results'].filter(item =>
+                item.title.toLowerCase().includes(query) || item.status.toLowerCase().includes(query)
+            );
+            renderItems('results-container', filteredResults);
+        }
+
+        // Debounce Utility
+        function debounce(fn, delay) {
+            let timeout;
+            return function(...args) {
+                clearTimeout(timeout);
+                timeout = setTimeout(() => fn.apply(this, args), delay);
+            };
+        }
+
+        // Attach Search Event
+        document.getElementById('search-input')
+            .addEventListener('input', debounce(handleSearch, 300));
+
+        // Initial Render
+        document.addEventListener('DOMContentLoaded', () => {
+            renderItems('latest-jobs-container', data['latest-jobs']);
+            renderItems('admit-card-container', data['admit-card']);
+            renderItems('results-container', data['results']);
+        });
+    </script>
+</body>
+</html>
